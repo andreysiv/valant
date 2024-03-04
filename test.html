@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="styles/style.css"/>
+  <title>Welcome</title>
+  <table id='newtb'>
+  </table>
+  <button id='pr'>Prev</button>
+  <button id='ne'>Next</button>
+</head>
+<body>
+  <h2 style="text-align: center;">
+    Welcome
+  </h2>
+  <script>
+      var password;
+      md5(password);
+      var items;
+      var limit=50;
+      var ids;
+      var offset=0;
+      var lclick=html.getElementById("pr").click;
+      var pclick=html.getElementById("ne").click;
+      var click = pclick or lclick;
+      if (click) {
+          ids=get_ids(offset,limit);
+          items=get_items(ids);
+          flds=get_fields(items,offset,limit);
+          if (pclick) {
+            offset += 50;
+          } else {
+            offset -= 50;
+          }
+          if (offset < 0) offset=0;
+          if (offset > 5000) offset = 4950;
+          
+      
+          html.getElementById("newtb").setContent(flds);
+      }
+  </script>
+</body>
+</html>
